@@ -39,31 +39,6 @@ time string
 
 take_voice() command to take the microphone input
 
-<code>def take_voice() :
-	r = sr.Recognizer()
-	with sr.Microphone() as source :
-		r.energy_threshold = data['energy_threshold']
-		print('Listening...')
-		audio = r.listen(source)
-		r.pause_threshold = data['pause_threshold']
-		try :
-			print('recognizing...')
-			query = r.recognize_google(audio, language=data['language'])
-			print(f'You : {query}')
-		except Exception as e:
-			print('pls say that again')
-			return 'None'
-		return query</code>
-
-
-say(query) functio to convert text-to=speech
-
-<code>
-    print(f'{query}')
-    tts = gTTS(query)
-    tts.save(f'voice{date_string}.mp3')
-    playsound(f'voice{date_string}.mp3')
-    os.unlink(f'voice{date_string}.mp3')</code>
 
 all the settings page commands
 
