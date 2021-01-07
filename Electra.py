@@ -1,4 +1,3 @@
-from socket import SO_PASSSEC
 from practically import *
 from settings import *
 while True:
