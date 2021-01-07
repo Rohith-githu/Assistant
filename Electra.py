@@ -1,3 +1,4 @@
+from socket import SO_PASSSEC
 from practically import *
 from settings import *
 while True:
@@ -79,10 +80,6 @@ while True:
             speak = speak + "Opening " + str(search) + " on youtube"
         elif 'practically' in text:
             practically()
-        elif 'open chrome' in text:
-            webbrowser.open('chrome.exe')
-        elif 'open edge' in text:
-            webbrowser.open('msedge.exe')
         elif 'wikipedia' in text:
             text = text.replace('wikipedia', '')
             results = wikipedia.summary(text, sentences=5)
@@ -116,8 +113,51 @@ while True:
         elif 'where are you' in text or 'where do you' in text:
             speak = speak + 'I am you computer, i stay in your hardisk and in github repository'
         elif 'the time' in text :
-            
-    
+            speak = speak + f'The time is {time_string}'
+        elif 'desktop' in text :
+            pyautogui.hotkey('win','d')
+        elif 'whatsapp' in text :
+            pyautogui.hotkey('win','5')
+        elif 'timeline' in text:
+            pyautogui.hotkey('win','tab')
+        elif 'explorer' in text :
+            pyautogui.hotkey('win','e')
+        elif 'open' in text :
+            if 'chrome' in text :
+                webbrowser.open('chrome.exe')
+            elif 'edge' in text:
+                webbrowser.open('msedge.exe')
+            elif 'code' in text:
+                os.system('code')
+            elif 'cortana' in text :
+                pyautogui.hotkey('win','c')
+            elif 'zoom' in text:
+                os.startfile(r"C:\Users\rohit\AppData\Roaming\Zoom\bin\Zoom.exe")
+            elif 'notepad' in text :
+                os.startfile(r"C:\WINDOWS\system32\notepad.exe")
+            elif 'youtube' in text :
+                webbrowser.open('http://www.youtube.com')
+            elif 'whatsapp' in text :
+                webbrowser.open('http://web.whatsapp.com')
+            else :
+                speak = speak + 'Can\'t find the app or couldn\'t open'
+        elif 'youtube' in text :
+            topic = text.split().index('youtube')
+            search = text.split()[topic + 1:]
+            url = 'https://www.youtube.com/results?q=' + search
+            cont = requests.get(url)
+            count = 0
+            data = cont.content
+            data = str(data)
+            lst = data.split('"')
+            for i in lst:
+                count+=1
+                if i == 'WEB_PAGE_TYPE_WATCH':
+                    break
+            if lst[count-5] == "/results":
+                raise Exception("No video found.")
+        
+            webbrowser.open("https://www.youtube.com"+lst[count-5])
         try :
             say(speak)
         except AssertionError as e :

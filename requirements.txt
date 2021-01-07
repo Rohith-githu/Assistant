@@ -2,3 +2,10 @@ SpeechRecognition
 PyAudio
 gtts
 playsound
+pyautogui
+wolframalpha
+pyperclip
+wikipedia
+warnings
+pyjokes
+requests
