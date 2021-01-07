@@ -2,6 +2,11 @@
 
 
 Hi I am Electra an open source Virtual assistant Can be used by anyone who wants to.
+Created By Rohtih Anumalasetty
+Age : 15
+
+#About
+Hello, I am your personal Assistant Electra. Your Assistant. I am here to make your life easier.You can command me to perform various tasks such as solving mathematical questions or opening applications etcetera. And Generates passwords to clipboard
 
 <h1>Setup :</h1>
 <b>First :</b>
