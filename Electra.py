@@ -3,7 +3,10 @@ from settings import *
 while True:
     text = take_voice().lower()
     speak = ''
-    if call(text):
+    if 'electra' in text or 'alexa' in text or 'electronic' in text or 'ultron' in text or 'computer' in text or 'okay' in text or 'hey' in text or 'hi' in text or 'elektra'in text:
+        greet = ['how can i help you','what can i do for you','go ahead','i am here','online ask anything']
+        say(random.choice(greet))
+        text = take_voice().lower()
         speak = ''
         if "date" in text or "day" in text or "month" in text:
             get_today = say_hello(text)
@@ -92,6 +95,18 @@ while True:
         elif 'screenshot' in text:
             screenshot()
             speak = speak + 'Screenshot captured and copied to clipboard.'
+        elif 'mute' in text:
+            pyautogui.hotkey('alt','a') #unmutes mic for zoom
+            pyautogui.hotkey('ctrl','d')    #unmutes mic for google meet
+        elif 'video' in text :
+            pyautogui.hotkey('ctrl','e')
+            pyautogui.hotkey('alt','v')
+        elif 'switch window' in text or 'which window':
+            pyautogui.hotkey('alt','tab')
+        elif 'which tab' in text :
+            pyautogui.hotkey('ctrl','tab')
+        elif 'close window' in text :
+            pyautogui.hotkey('alt','f4')
         try :
             say(speak)
         except AssertionError as e :
