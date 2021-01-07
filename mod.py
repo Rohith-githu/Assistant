@@ -5,4 +5,14 @@ from playsound import *
 import datetime
 import json
 import pyautogui
-from googlesearch.googlesearch import GoogleSearch
+import wolframalpha
+import random
+import string
+import pyperclip
+import wikipedia
+import webbrowser
+import time
+import calendar
+import warnings
+
+warnings.filterwarnings('ignore')

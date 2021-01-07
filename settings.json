@@ -1,3 +1,6 @@
 {
-    "language" : "en-in"
+    "language" : "en-in",
+    "pause_threshold" : 0.8,
+    "ambience_meter" : 1.2,
+    "energy_threshold" : 1000
 }
