@@ -57,7 +57,7 @@ while True:
                 temperature = temperature - 273.15
                 humidity = weather["humidity"]
                 desc = js["weather"][0]["description"]
-                weather_response = " The temperature in Celcius is " + str(temperature) + " The humidityis " + str(
+                weather_response = " The temperature in Celcius is " + str(temperature[0:4]) + " The humidityis " + str(
                     humidity) + " and The weather description is " + str(desc)
                 speak = speak + weather_response
             else:
@@ -107,7 +107,20 @@ while True:
             pyautogui.hotkey('ctrl','tab')
         elif 'close window' in text :
             pyautogui.hotkey('alt','f4')
+        elif 'who are you' in text :
+            speak = speak + """Hello, I am your personal Assistant Electra. Your Assistant. I am here to make your life easier.  
+                You can command me to perform various tasks such as solving mathematical questions or opening 
+                applications etcetera."""
+        elif 'how are you' in text :
+            speak = speak + 'I am fine'
+        elif 'where are you' in text or 'where do you' in text:
+            speak = speak + 'I am you computer, i stay in your hardisk and in github repository'
+        elif 'the time' in text :
+            
+    
         try :
             say(speak)
         except AssertionError as e :
             say("I dont know that")
+
+say('process terminated')

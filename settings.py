@@ -1,7 +1,7 @@
 from mod import *
 with open('settings.json') as f:
     data = json.load(f)
-date_string = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
+date_string = datetime.datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
 time_string = datetime.datetime.now().strftime("%H:%M")
 def take_voice() :
 	r = sr.Recognizer()
@@ -57,15 +57,6 @@ def maps(place) :
 	say(f'searching directions for {place}')
 	webbrowser.open(f'https://www.google.co.in/maps/place/{place}')
 	say(f'heres the {place}')
-
-
-def call(text):
-	action_call = 'electra'
-	text = text.lower()
-	if action_call in text or 'elektra' in text:
-		return True
-	return False
-
 
 def today_date():
 	now = datetime.datetime.now()
