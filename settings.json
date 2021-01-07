@@ -2,5 +2,6 @@
     "language" : "en-in",
     "pause_threshold" : 0.8,
     "ambience_meter" : 1.2,
-    "energy_threshold" : 1000
+    "energy_threshold" : 1000,
+    "wapp_id" : "WT7WP4-U5G6E93E2R"
 }

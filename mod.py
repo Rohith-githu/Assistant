@@ -14,5 +14,8 @@ import webbrowser
 import time
 import calendar
 import warnings
+import subprocess
+import pyjokes
+import requests
 
 warnings.filterwarnings('ignore')

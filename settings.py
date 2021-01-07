@@ -2,7 +2,7 @@ from mod import *
 with open('settings.json') as f:
     data = json.load(f)
 date_string = datetime.datetime.now().strftime("%d%m%Y%H%M%S")
-
+time_string = datetime.datetime.now().strftime("%H:%M")
 def take_voice() :
 	r = sr.Recognizer()
 	with sr.Microphone() as source :
@@ -34,22 +34,7 @@ def screenshot():
 def google(query):
     webbrowser.open(f'https://www.google.com/search?q={query}')
 
-def encyclopedia(ask):
-	try :
-		app_id = 'WT7WP4-U5G6E93E2R'
-		client = wolframalpha.Client(app_id)
-		res = client.query(ask)
-		for pod in res.pods:
-			say('These are the results from WolframAlpha : {p.text}'.format(p=pod))
-	except StopIteration :
-		google(ask)
-	except Exception as e:
-		if 'what is' in ask :
-			ask = ask.replace('what is', '')
-			say(wikipedia.summary(ask))
-		elif 'who is' in ask :
-			ask = ask.replace('who is', '')
-			say(wikipedia.summary(ask))
+
 
 def password():
     set1 = string.ascii_uppercase
@@ -144,3 +129,11 @@ def today_date():
 def say_hello(text):
     greet = ['Hi sir!', 'What are you doing?','are you bored','What can i do for you?','yaa i am here']
     return say(random.choice(greet))
+
+def note(text):
+    date = datetime.datetime.now()
+    file_name = str(date).replace(":", "-") + "-note.txt"
+    with open(file_name, "w") as f:
+        f.write(text)
+
+    subprocess.Popen(["notepad.exe", file_name])
