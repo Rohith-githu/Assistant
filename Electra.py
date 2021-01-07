@@ -35,7 +35,10 @@ while True:
         elif 'dont listen' in text or 'stop listening' in text:
             say("how much time should i sleep")
             text = take_voice().lower()
-            time.sleep(int(text))
+            try:
+                time.sleep(int(text))
+            except :
+                speak = speak + 'Error! occoured while executing program '
             say('i am back you can ask questions')
         elif 'say a joke' in text or 'a joke' in text:
             speak = speak + pyjokes.get_joke()
@@ -97,7 +100,7 @@ while True:
         elif 'video' in text :
             pyautogui.hotkey('ctrl','e')
             pyautogui.hotkey('alt','v')
-        elif 'switch window' in text or 'which window':
+        elif 'switch window' in text or 'which window' in text:
             pyautogui.hotkey('alt','tab')
         elif 'which tab' in text :
             pyautogui.hotkey('ctrl','tab')
@@ -160,6 +163,10 @@ while True:
         try :
             say(speak)
         except AssertionError as e :
-            say("I dont know that")
+            dont = ['I Don\'t Know that',
+                    'I can\'t do that',
+                    'That ,aybe beyond my abilities',
+                    'Ask Anything else' ]
+            say(random.choice(dont))
 
 say('process terminated')
