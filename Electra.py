@@ -46,7 +46,7 @@ while True:
             ind = text.split().index("in")
             location = text.split()[ind + 1:]
             location = "".join(location)
-            url = weather_url + "appid=" + key + "&q=" + 'hyderabad'
+            url = weather_url + "appid=" + key + "&q=" + location
             js = requests.get(url).json()
             if js["cod"] != "404":
                 weather = js["main"]
@@ -80,7 +80,18 @@ while True:
             webbrowser.open('chrome.exe')
         elif 'open edge' in text:
             webbrowser.open('msedge.exe')
-        
+        elif 'wikipedia' in text:
+            text = text.replace('wikipedia', '')
+            results = wikipedia.summary(text, sentences=5)
+            speak = speak + 'According to wikipedia article :' + results
+        elif "note" in text or "remember this" in text:
+            say("What would you like me to write down?")
+            note_text = take_voice()
+            note(note_text)
+            speak = speak + "I have made a note of that."
+        elif 'screenshot' in text:
+            screenshot()
+            speak = speak + 'Screenshot captured and copied to clipboard.'
         try :
             say(speak)
         except AssertionError as e :

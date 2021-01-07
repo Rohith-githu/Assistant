@@ -1,5 +1,5 @@
-from selenium import webdriver
 import time
+from selenium import webdriver
 from settings import *
 def practically():
     chrome_options = webdriver.ChromeOptions()
@@ -18,8 +18,8 @@ def practically():
     try :
         driver.find_element_by_link_text('Login').click()
         time.sleep(1)
-        driver.find_element_by_xpath('//*[@id="LoginID"]').send_keys('bpt0257')
-        driver.find_element_by_xpath('//*[@id="password"]').send_keys('rohith2078')
+        driver.find_element_by_xpath('//*[@id="LoginID"]').send_keys(data['practically_id'])
+        driver.find_element_by_xpath('//*[@id="password"]').send_keys(data['practically_password'])
         driver.find_element_by_xpath('//*[@id="loginform"]/div[5]/button').click()
         print('loged in successfully')
     except Exception as e:
