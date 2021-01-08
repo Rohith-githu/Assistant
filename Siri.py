@@ -3,7 +3,8 @@ from settings import *
 while True:
     text = take_voice().lower()
     speak = ''
-    if 'electra' in text or 'alexa' in text or 'electronic' in text or 'ultron' in text or 'computer' in text or 'okay' in text or 'hey' in text or 'hi' in text or 'elektra'in text:
+    if 'electra' in text or 'alexa' in text or 'electronic' in text or 'ultron' in text or 'computer' in text or 'okay' in text or 'hey' in text or 'hi' in text or 'elektra'in text or 'siri' in text or 'shri' in text:
+
         greet = ['how can i help you','what can i do for you','go ahead','i am here','online ask anything']
         say(random.choice(greet))
         text = take_voice().lower()
@@ -125,6 +126,7 @@ while True:
         elif 'explorer' in text :
             pyautogui.hotkey('win','e')
         elif 'open' in text :
+            speak = speak + 'opened'
             if 'chrome' in text :
                 webbrowser.open('chrome.exe')
             elif 'edge' in text:
@@ -160,6 +162,12 @@ while True:
                 raise Exception("No video found.")
         
             webbrowser.open("https://www.youtube.com"+lst[count-5])
+        elif 'password' in text:
+            password_manager()
+            speak = speak + ' generated a password and stored to database'
+        elif 'my passwords' in text:
+            passwords()
+            speak = speak + 'These are your passwords'
         try :
             say(speak)
         except AssertionError as e :

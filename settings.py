@@ -35,7 +35,7 @@ def google(query):
 
 
 
-def password():
+def password_manager():
     set1 = string.ascii_uppercase
     set2 = string.ascii_lowercase
     set3 = string.digits
@@ -47,7 +47,16 @@ def password():
     passset.extend(set3)
     passset.extend(set4)
     random.shuffle(passset)
-    pyperclip.copy(''.join(passset[0:passlen]))
+    main_p = ''.join(passset[0:passlen])
+    pyperclip.copy(main_p)
+    say('What\'s this password for :')
+    text = take_voice()
+    with open('Essentials\\passwords.txt', 'w') as f:
+        f.write(f'{time_string} : {text} : {main_p}')
+    pyautogui.typewrite(f'{main_p}')
+def passwords():
+    with open('Essentials\passwords.txt', 'r') as f :
+        say(f'{f.read()} These are your saved passwords.\n')
 
 def wiki(query) :
 	query = query.replace('wikipedia')
