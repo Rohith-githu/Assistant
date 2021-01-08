@@ -19,12 +19,18 @@ def take_voice() :
 			return 'None'
 		return query
 
+# def say(query):
+#     print(f'{query}')
+#     tts = gTTS(query)
+#     tts.save(f'voice{date_string}.mp3')
+#     playsound(f'voice{date_string}.mp3')
+#     os.unlink(f'voice{date_string}.mp3')
+
 def say(query):
-    print(f'{query}')
-    tts = gTTS(query)
-    tts.save(f'voice{date_string}.mp3')
-    playsound(f'voice{date_string}.mp3')
-    os.unlink(f'voice{date_string}.mp3')
+    m = pyttsx3.init()
+    print(query)
+    m.say(query)
+    m.runAndWait()
 
 def screenshot():
 	screenshot = pyautogui.screenshot()

@@ -168,12 +168,19 @@ while True:
         elif 'my passwords' in text:
             passwords()
             speak = speak + 'These are your passwords'
+        elif 'help' in text:
+            speak =speak + ' i am here to help you ask Anything'
+        elif 'shutdown' in text or 'restart' in text or 'sleep' in text or 'lock' in text or 'signout' in text:
+            speak =speak + 'This feature is coming soon.'
+        else :
+        	dontk = ['I don\'t know that','Ican\'t do that','That maybe beyond my abilities.']
+        	speak = random.choice(dontk)
         try :
             say(speak)
         except AssertionError as e :
             dont = ['I Don\'t Know that',
                     'I can\'t do that',
-                    'That ,aybe beyond my abilities',
+                    'That maybe beyond my abilities',
                     'Ask Anything else' ]
             say(random.choice(dont))
 
