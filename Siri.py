@@ -10,7 +10,6 @@ while True:
         text = take_voice().lower()
         speak = ''
         if "date" in text or "day" in text or "month" in text:
-            get_today = say_hello(text)
             speak = speak + " " + get_today
         elif 'time' in text:
             speak = speak + 'the time is :' + datetime.datetime.now().strftime('%H:%M')
@@ -59,9 +58,10 @@ while True:
                 weather = js["main"]
                 temperature = weather["temp"]
                 temperature = temperature - 273.15
+                int(temperature)
                 humidity = weather["humidity"]
                 desc = js["weather"][0]["description"]
-                weather_response = " The temperature in Celcius is " + str(temperature[0:4]) + " The humidityis " + str(
+                weather_response = " The temperature in Celcius is " + str(temperature) + " The humidityis " + str(
                     humidity) + " and The weather description is " + str(desc)
                 speak = speak + weather_response
             else:

@@ -61,7 +61,7 @@ def password_manager():
         f.write(f'{time_string} : {text} : {main_p}')
     pyautogui.typewrite(f'{main_p}')
 def passwords():
-    with open('Essentials\passwords.txt', 'r') as f :
+    with open(r'Essentials\passwords.txt', 'r') as f :
         say(f'{f.read()} These are your saved passwords.\n')
 
 def wiki(query) :
