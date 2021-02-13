@@ -1,37 +1,44 @@
+from mail import *
 from practically import *
 from settings import *
 while True:
     text = take_voice().lower()
     speak = ''
-    if 'electra' in text or 'alexa' in text or 'electronic' in text or 'ultron' in text or 'computer' in text or 'okay' in text or 'hey' in text or 'hi' in text or 'elektra'in text or 'siri' in text or 'shri' in text:
-
+    # if 'electra' in text or 'alexa' in text or 'electronic' in text or 'ultron' in text or 'computer' in text or 'okay' in text or 'hey' in text or 'hi' in text or 'elektra'in text or 'siri' in text or 'shri' in text:
+    if 'rohit' in text:
         greet = ['how can i help you','what can i do for you','go ahead','i am here','online ask anything']
         say(random.choice(greet))
         text = take_voice().lower()
         speak = ''
         if "date" in text or "day" in text or "month" in text:
-            speak = speak + " " + get_today
+            speak = speak + " " + today_date()
         elif 'time' in text:
-            speak = speak + 'the time is :' + datetime.datetime.now().strftime('%H:%M')
+            speak = speak + 'the time is :' + datetime.datetime.now().strftime('%H%M')
         elif 'note' in text:
             text = text.replace("create a note", '')
             note(text)
         elif 'calculate' in text:
-            app_id = data['wapp_id']
-            client = wolframalpha.Client(app_id)
-            ind = text.lower().split().index("calculate")
-            text = text.split()[ind + 1:]
-            res = client.query(" ".join(text))
-            answer = next(res.results).text
-            speak = speak + "The answer is " + answer
+             try:
+                app_id = data['wapp_id']
+                client = wolframalpha.Client(app_id)
+                ind = text.lower().split().index("calculate")
+                text = text.split()[ind + 1:]
+                res = client.query(" ".join(text))
+                answer = next(res.results).text
+                speak = speak + "The answer is " + answer
+             except:
+                speak = speak + 'Error Occured'
         elif 'who is' in text or 'what is' in text:
-            app_id = data['wapp_id']
-            client = wolframalpha.Client(app_id)
-            ind = text.lower().split().index("is")
-            text = text.split()[ind + 1:]
-            res = client.query(" ".join(text))
-            answer = next(res.results).text
-            speak = speak + answer
+            try :
+                app_id = data['wapp_id']
+                client = wolframalpha.Client(app_id)
+                ind = text.lower().split().index("is")
+                text = text.split()[ind + 1:]
+                res = client.query(" ".join(text))
+                answer = next(res.results).text
+                speak = speak + answer
+            except:
+                speak = speak + 'Cannot provide this service temporarily'
         elif 'dont listen' in text or 'stop listening' in text:
             say("how much time should i sleep")
             text = take_voice().lower()
@@ -119,8 +126,6 @@ while True:
             speak = speak + f'The time is {time_string}'
         elif 'desktop' in text :
             pyautogui.hotkey('win','d')
-        elif 'whatsapp' in text :
-            pyautogui.hotkey('win','5')
         elif 'timeline' in text:
             pyautogui.hotkey('win','tab')
         elif 'explorer' in text :
@@ -143,6 +148,8 @@ while True:
                 webbrowser.open('http://www.youtube.com')
             elif 'whatsapp' in text :
                 webbrowser.open('http://web.whatsapp.com')
+            elif 'brave' in text:
+            	webbrowser.open('brave.exe')
             else :
                 speak = speak + 'Can\'t find the app or couldn\'t open'
         elif 'youtube' in text :
