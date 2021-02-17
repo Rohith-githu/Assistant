@@ -28,13 +28,11 @@ while True:
                 speak = speak + "The answer is " + answer
              except:
                 speak = speak + 'Error Occured'
-        elif 'who is' in text or 'what is' in text:
+        elif 'what is' in text:
             try :
                 app_id = data['wapp_id']
                 client = wolframalpha.Client(app_id)
-                ind = text.lower().split().index("is")
-                text = text.split()[ind + 1:]
-                res = client.query(" ".join(text))
+                res = client.query(text)
                 answer = next(res.results).text
                 speak = speak + answer
             except:
@@ -93,6 +91,13 @@ while True:
             text = text.replace('wikipedia', '')
             results = wikipedia.summary(text, sentences=5)
             speak = speak + 'According to wikipedia article :' + results
+        elif 'who is' in text:
+            try:
+                text = text.replace('who is', '')
+                results = wikipedia.summary(text, sentences=4)
+                speak = speak + 'According to wikipedia :' + results
+            except:
+                speak = speak + 'Sorry I dont know him, please check the full name or try again'
         elif "note" in text or "remember this" in text:
             say("What would you like me to write down?")
             note_text = take_voice()
@@ -103,7 +108,7 @@ while True:
             speak = speak + 'Screenshot captured and copied to clipboard.'
         elif 'mute' in text:
             pyautogui.hotkey('alt','a') #unmutes mic for zoom
-            pyautogui.hotkey('ctrl','d')    #unmutes mic for google meet
+            pyautogui.hotkey('ctrl','d')#unmutes mic for google meet
         elif 'video' in text :
             pyautogui.hotkey('ctrl','e')
             pyautogui.hotkey('alt','v')
@@ -114,9 +119,7 @@ while True:
         elif 'close window' in text :
             pyautogui.hotkey('alt','f4')
         elif 'who are you' in text :
-            speak = speak + """Hello, I am your personal Assistant Electra. Your Assistant. I am here to make your life easier.  
-                You can command me to perform various tasks such as solving mathematical questions or opening 
-                applications etcetera."""
+            speak = speak + 'Hi I am Rohith Your Personal Assistant Created by Rohith Anumalasetty. I can Answer any of your questions, but i am still getting ready. You can ask me the hardest mths calcuations, equations ans for solutions i will give the answer to you.'
         elif 'how are you' in text :
             speak = speak + 'I am fine'
         elif 'where are you' in text or 'where do you' in text:
