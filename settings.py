@@ -80,7 +80,7 @@ def wiki(query) :
 def maps(place) :
 	say(f'searching directions for {place}')
 	webbrowser.open(f'https://www.google.co.in/maps/place/{place}')
-	say(f'heres the {place}')
+	say(f'Showing {place} in google maps')
 
 def today_date():
 	now = datetime.datetime.now()
@@ -138,7 +138,7 @@ def today_date():
         "31st",
 	]
 
-	say("Today is " + week_now + ", " + months[month_now - 1] + " the " + ordinals[day_now - 1] + ".")
+	say("Today is " + week_now + ", " + months[month_now - 1] + " the " + ordinals[day_now - 1])
 
 def say_hello(text):
     greet = ['Hi sir!', 'What are you doing?','are you bored','What can i do for you?','yaa i am here']

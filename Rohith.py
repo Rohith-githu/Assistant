@@ -50,9 +50,8 @@ while True:
         elif 'say a joke' in text or 'a joke' in text:
             speak = speak + pyjokes.get_joke()
         elif 'where is' in text or 'locate' in text:
-            ind = text.split().index("is")
-            maps(ind)
-            speak = speak + 'this is the location of {ind}'
+            text = text.replace('locate','')
+            maps(text)
         elif 'weather' in text:
             key = "c1a1d7cd5a5a31f4b2bb46132c56b06b"
             weather_url = "http://api.openweathermap.org/data/2.5/weather?"
@@ -180,7 +179,7 @@ while True:
         elif 'shutdown' in text or 'restart' in text or 'sleep' in text or 'lock' in text or 'signout' in text:
             speak =speak + 'This feature is coming soon.'
         else :
-        	dontk = ['I don\'t know that','Ican\'t do that','That maybe beyond my abilities.']
+        	dontk = ['I don\'t know that','I can\'t do that','That maybe beyond my abilities.']
         	speak = random.choice(dontk)
         try :
             say(speak)

@@ -1,9 +1,9 @@
 {
     "language" : "en-in",
-    "pause_threshold" : 1,
+    "pause_threshold" : 0.8,
     "ambience_meter" : 1.2,
     "energy_threshold" : 1000,
-    "wapp_id" : "WT7WP4-U5G6E93E2R",
+    "wapp_id" : "WT7WP4-95L476TGPG",
     "practically_id" : "bpt0257",
     "practically_password" : "rohith2078",
     "Wake_word" : "Rohit"
