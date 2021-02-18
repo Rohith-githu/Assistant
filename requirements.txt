@@ -1,5 +1,4 @@
 SpeechRecognition
-PyAudio
 gtts
 playsound
 pyautogui
@@ -9,3 +8,5 @@ wikipedia
 warnings
 pyjokes
 requests
+PyAudio
+pyttsx3

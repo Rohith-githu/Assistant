@@ -48,7 +48,10 @@ while True:
         elif 'say a joke' in text or 'a joke' in text:
             speak = speak + pyjokes.get_joke()
         elif 'where is' in text or 'locate' in text:
-            text = text.replace('locate','')
+            if 'locate' in text :
+                text = text.replace('locate','')
+            elif 'where is' in text :
+                text = text.replace('where is','')
             maps(text)
         elif 'weather' in text:
             key = "c1a1d7cd5a5a31f4b2bb46132c56b06b"
@@ -149,7 +152,7 @@ while True:
             elif 'youtube' in text :
                 webbrowser.open('http://www.youtube.com')
             elif 'whatsapp' in text :
-                webbrowser.open('http://web.whatsapp.com')
+                webbrowser.open("https://web.whatsapp.com")
             elif 'brave' in text:
             	webbrowser.open('brave.exe')
             else :

@@ -38,6 +38,7 @@ def call(text):
 def say(query):
     m = pyttsx3.init()
     print(query)
+    m.setProperty("rate", data['Speed'])
     m.say(query)
     m.runAndWait()
 
