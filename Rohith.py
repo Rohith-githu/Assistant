@@ -1,6 +1,7 @@
-from mail import *
-from practically import *
+from Automations.Map_directions import Mapautomate
+from Automations.practically import *
 from settings import *
+
 while True:
     text = take_voice().lower()
     speak = ''
@@ -97,7 +98,7 @@ while True:
         elif 'who is' in text:
             try:
                 text = text.replace('who is', '')
-                results = wikipedia.summary(text, sentences=4)
+                results = wikipedia.summary(text, sentences=3)
                 speak = speak + 'According to wikipedia :' + results
             except:
                 speak = speak + 'Sorry I dont know him, please check the full name or try again'
@@ -184,6 +185,17 @@ while True:
             speak =speak + ' i am here to help you ask Anything'
         elif 'shutdown' in text or 'restart' in text or 'sleep' in text or 'lock' in text or 'signout' in text:
             speak =speak + 'This feature is coming soon.'
+        elif 'direct me to' in text:
+            text = text.replace('direct me to', '')
+            Mapautomate(text)
+        elif 'directions for' in text:
+            text = text.replace('directions for', '')
+            Mapautomate(text)
+        elif 'desktop' in text:
+            if 'create' in text:
+                pyautogui.hotkey('win','ctrl','d')
+            elif 'delete' in text:
+                pyautogui.hotkey('win','ctrl','f4')
         else :
         	dontk = ['I don\'t know that','I can\'t do that','That maybe beyond my abilities.']
         	speak = random.choice(dontk)

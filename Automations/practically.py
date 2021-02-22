@@ -1,11 +1,14 @@
 import time
 from selenium import webdriver
-from settings import *
+import pyttsx3
+def say(query):
+    m = pyttsx3.init()
+    print(query)
+    m.setProperty("rate", 150)
+    m.say(query)
+    m.runAndWait()
 def practically():
-    chrome_options = webdriver.ChromeOptions()
-    prefs = {"profile.default_content_setting_values.notifications" : 2}
-    chrome_options.add_experimental_option("prefs",prefs)
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    driver = webdriver.Chrome()
     try :
         driver.get('https://www.practically.com')
         print('practically opened')
@@ -18,8 +21,8 @@ def practically():
     try :
         driver.find_element_by_link_text('Login').click()
         time.sleep(1)
-        driver.find_element_by_xpath('//*[@id="LoginID"]').send_keys(data['practically_id'])
-        driver.find_element_by_xpath('//*[@id="password"]').send_keys(data['practically_password'])
+        driver.find_element_by_xpath('//*[@id="LoginID"]').send_keys('bpt0257')
+        driver.find_element_by_xpath('//*[@id="password"]').send_keys('rohith2078')
         driver.find_element_by_xpath('//*[@id="loginform"]/div[5]/button').click()
         print('loged in successfully')
     except Exception as e:
