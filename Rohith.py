@@ -12,7 +12,7 @@ while True:
         text = take_voice().lower()
         speak = ''
         if "date" in text or "day" in text or "month" in text:
-            speak = speak + " " + today_date()
+            speak = speak + today_date()
         elif 'time' in text:
             speak = speak + 'the time is :' + datetime.datetime.now().strftime('%H%M')
         elif 'note' in text:
@@ -137,7 +137,7 @@ while True:
         elif 'explorer' in text :
             pyautogui.hotkey('win','e')
         elif 'open' in text :
-            speak = speak + 'opened'
+            speak = speak + 'opened '
             if 'chrome' in text :
                 webbrowser.open('chrome.exe')
             elif 'edge' in text:
@@ -156,6 +156,14 @@ while True:
                 webbrowser.open("https://web.whatsapp.com")
             elif 'brave' in text:
             	webbrowser.open('brave.exe')
+            elif 'terminal' in text :
+                os.startfile(r"C:\Users\rohit\AppData\Local\Microsoft\WindowsApps\wt.exe")
+            elif 'skype' in text :
+                os.startfile(r"C:\Users\rohit\AppData\Local\Microsoft\WindowsApps\Skype.exe")
+            elif 'premire pro' in text or 'premiere pro' in text:
+                os.startfile(r"C:\Users\rohit\AppData\Local\Adobe Premiere Pro 2020\Adobe Premiere Pro.exe")
+            elif 'open snagit' in text:
+                os.startfile(r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\TechSmith\Snagit 2021.lnk")
             else :
                 speak = speak + 'Can\'t find the app or couldn\'t open'
         elif 'youtube' in text :
