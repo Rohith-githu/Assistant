@@ -123,7 +123,7 @@ while True:
         elif 'close window' in text :
             pyautogui.hotkey('alt','f4')
         elif 'who are you' in text :
-            speak = speak + 'Hi I am Rohith Your Personal Assistant Created by Rohith Anumalasetty. I can Answer any of your questions, but i am still getting ready. You can ask me the hardest mths calcuations, equations ans for solutions i will give the answer to you.'
+            speak = speak + 'Hi I am Rohith Your Personal Assistant Created by Rohith Anumalasetty. I can Answer any of your questions, but i am still getting ready. You can ask me the hardest maths calcuations, equations ans for solutions i will give the answer to you. Now I can Also Show directions to you form your location and locate place\'s'
         elif 'how are you' in text :
             speak = speak + 'I am fine'
         elif 'where are you' in text or 'where do you' in text:
@@ -162,8 +162,6 @@ while True:
                 os.startfile(r"C:\Users\rohit\AppData\Local\Microsoft\WindowsApps\Skype.exe")
             elif 'premire pro' in text or 'premiere pro' in text:
                 os.startfile(r"C:\Users\rohit\AppData\Local\Adobe Premiere Pro 2020\Adobe Premiere Pro.exe")
-            elif 'open snagit' in text:
-                os.startfile(r"C:\ProgramData\Microsoft\Windows\Start Menu\Programs\TechSmith\Snagit 2021.lnk")
             else :
                 speak = speak + 'Can\'t find the app or couldn\'t open'
         elif 'youtube' in text :
