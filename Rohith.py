@@ -147,7 +147,7 @@ while True:
             elif 'cortana' in text :
                 pyautogui.hotkey('win','c')
             elif 'zoom' in text:
-                os.startfile(r"C:\Users\rohit\AppData\Roaming\Zoom\bin\Zoom.exe")
+                os.startfile(r"C:\Users\Rohith Anumalasetty\AppData\Roaming\Zoom\bin\Zoom.exe")
             elif 'notepad' in text :
                 os.startfile(r"C:\WINDOWS\system32\notepad.exe")
             elif 'youtube' in text :
@@ -157,11 +157,11 @@ while True:
             elif 'brave' in text:
             	webbrowser.open('brave.exe')
             elif 'terminal' in text :
-                os.startfile(r"C:\Users\rohit\AppData\Local\Microsoft\WindowsApps\wt.exe")
+                os.startfile(r"C:\Users\Rohith Anumalasetty\AppData\Local\Microsoft\WindowsApps\wt.exe")
             elif 'skype' in text :
-                os.startfile(r"C:\Users\rohit\AppData\Local\Microsoft\WindowsApps\Skype.exe")
+                os.startfile(r"C:\Users\Rohith Anumalasetty\AppData\Local\Microsoft\WindowsApps\Skype.exe")
             elif 'premire pro' in text or 'premiere pro' in text:
-                os.startfile(r"C:\Users\rohit\AppData\Local\Adobe Premiere Pro 2020\Adobe Premiere Pro.exe")
+                os.startfile(r"C:\Users\Rohith Anumalasetty\AppData\Local\Adobe Premiere Pro 2020\Adobe Premiere Pro.exe")
             else :
                 speak = speak + 'Can\'t find the app or couldn\'t open'
         elif 'youtube' in text :
